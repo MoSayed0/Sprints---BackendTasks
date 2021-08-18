@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Simple calculator</title>           
+        <style>
+            .h1 {
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="h1">Hello World</h1> 
+        <script type = "text/javascript">
+            function sum(){
+                var num1,num2,sum_res;
+                sum_res = 0;
+                input_num1=Number(document.getElementById("num1").value);
+                input_num2=Number(document.getElementById("num2").value);
+                if (validateNum(input_num1) && validateNum(input_num2)){
+                    sum_res = input_num1 + input_num2;
+                    document.getElementById("result").value= sum_res;
+                }else{
+                    document.getElementById("num1").value= "";
+                    document.getElementById("num2").value= "";
+                    document.getElementById("result").value= "";
+                    
+                    alert("Please only enter numeric characters only! (Allowed input:0-9)")   
+                }
+            }
+            function validateNum(checkNum){
+                var z = checkNum;
+                var isValidNum = true;
+                if(!/^[0-9]+$/.test(z)){
+                    isValidNum = false; 
+                }
+                return isValidNum;
+            }
+            
+        </script>
+        <label> Num1: </label><input type = "text" id="num1"><br>   
+        <label> Num2: </label><input type  = "text"id="num2"><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type = "button" onclick="sum()"> Sum </button><br>
+        <label> Result:</label><input type= "text" id="result"/>
+    </body>
+</html> 
+
+
